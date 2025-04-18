@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colhendo Dinheiro - Ebook</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .guarantee-badge {
+            position: relative;
+            overflow: hidden;
+        }
+        .guarantee-badge::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent 45%, rgba(255,255,255,0.3) 45%, rgba(255,255,255,0.3) 55%, transparent 55%);
+            transform: rotate(-45deg);
+            transform-origin: center;
+        }
+        .price-tag {
+            position: relative;
+            overflow: hidden;
+        }
+        .price-tag::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 0;
+            height: 0;
+            border-left: 20px solid transparent;
+            border-bottom: 20px solid #f59e0b;
+        }
+        .price-tag::before {
+            content: "OFERTA";
+            position: absolute;
+            top: 2px;
+            right: 2px;
+            font-size: 10px;
+            font-weight: bold;
+            color: white;
+            z-index: 1;
+            transform: rotate(45deg);
+            transform-origin: right top;
+        }
+        .faq-item {
+            transition: all 0.3s ease;
+        }
+        .faq-item:hover {
+            transform: translateX(5px);
+        }
+        .floating-ebook {
+            animation: float 6s ease-in-out infinite;
+            filter: drop-shadow(0 20px 15px rgba(0, 0, 0, 0.3));
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        .hero-section {
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1470&auto=format&fit=crop');
+            background-size: cover;
+            opacity: 0.15; /* Increased transparency */
+            z-index: 0;
+        }
+        .gradient-btn {
+            background: linear-gradient(45deg, #f59e0b, #ef4444);
+            background-size: 200% 200%;
+            transition: all 0.5s ease;
+        }
+        .gradient-btn:hover {
+            background-position: right center;
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(239, 68, 68, 0.3);
+        }
+        .secure-badge {
+            background: linear-gradient(45deg, #10b981, #059669);
+            color: white;
+            font-weight: bold;
+            padding: 8px 16px;
+            border-radius: 9999px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            margin-bottom: 16px;
+        }
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .countdown-box {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            padding: 10px;
+            min-width: 70px;
+            position: relative;
+            overflow: hidden;
+        }
+        .countdown-box::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #ef4444, #f59e0b);
+            animation: progress 1s linear infinite;
+        }
+        @keyframes progress {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        .launch-badge {
+            background: linear-gradient(45deg, #f59e0b, #ef4444);
+            color: white;
+            font-weight: bold;
+            padding: 8px 16px;
+            border-radius: 9999px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        .launch-badge:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(239, 68, 68, 0.2);
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50">
+    <!-- Header Section -->
+    <header class="hero-section bg-gradient-to-r from-blue-800 to-blue-600 text-white py-12 px-4 md:px-8">
+        <div class="hero-bg"></div>
+        <div class="container mx-auto max-w-6xl relative z-10">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-4">Colhendo Dinheiro</h1>
+                    <p class="text-xl mb-6">Plante hoje e colha amanhã</p>
+                    <p class="text-lg mb-8">Um método intuitivo de fácil leitura e aprendizado para você começar a ter sua conta no positivo seguindo nossos passos.</p>
+                    <a href="#comprar" class="gradient-btn text-white font-bold py-3 px-8 rounded-full text-lg inline-block shadow-lg">
+                        COMPRE AGORA <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <div class="relative">
+                        <img src="img/capa.png" alt="Ebook Colhendo Dinheiro" class="floating-ebook w-full max-w-md">
+                        <a href="#comprar" class="absolute -bottom-4 -right-4 launch-badge">
+                            <i class="fas fa-tag mr-2"></i> Lançamento
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Video VSL Section -->
+    <section class="py-16 px-4 md:px-8 bg-white">
+        <div class="container mx-auto max-w-6xl">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800">Assista ao Vídeo e Descubra Como Transformar Sua Vida Financeira</h2>
+                <p class="text-xl text-gray-600 mt-2">Veja o depoimento de quem já aplicou o método</p>
+            </div>
+            <div class="max-w-4xl mx-auto">
+                <div class="video-container">
+<video controls width="100%">
+<source src="videos/vsl.mp4" type="video/mp4">
+Seu navegador não suporta o elemento de vídeo.
+</video>
+</div>
+                <div class="text-center mt-8">
+                    <div class="secure-badge">
+                        <i class="fas fa-lock mr-2"></i> PAGAMENTO SEGURO
+                    </div>
+                    <a href="#comprar" class="gradient-btn text-white font-bold py-3 px-8 rounded-full text-lg inline-block shadow-lg mx-2">
+                        QUERO COMPRAR AGORA!
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Section -->
+    <section class="py-16 px-4 md:px-8 bg-gray-50">
+        <div class="container mx-auto max-w-6xl">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0">
+                    <h2 class="text-3xl font-bold mb-6 text-gray-800">Sobre o Conteúdo</h2>
+                    <div class="prose max-w-none">
+                        <p class="text-gray-700 mb-4 text-lg">Educação financeira é o processo de aprender a gerenciar suas finanças de maneira eficaz.</p>
+                        <p class="text-gray-700 mb-4">Isso inclui entender como fazer um orçamento, economizar, investir e lidar com dívidas.</p>
+                        <p class="text-gray-700 mb-4">O objetivo da educação financeira é capacitar as pessoas a tomar decisões informadas sobre seu dinheiro, ajudando a alcançar suas metas financeiras e a ter uma vida financeira mais saudável.</p>
+                        <p class="text-gray-700">É uma habilidade importante que pode impactar positivamente a qualidade de vida e a segurança financeira a longo prazo.</p>
+                    </div>
+                    <div class="mt-8">
+                        <a href="#comprar" class="gradient-btn text-white font-bold py-3 px-8 rounded-full text-lg inline-block shadow-lg">
+                            <i class="fas fa-shopping-cart mr-2"></i> ADICIONAR AO CARRINHO
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <div class="bg-blue-50 p-8 rounded-lg shadow-lg border-l-4 border-blue-600">
+                        <h3 class="text-2xl font-bold mb-4 text-blue-800">O que você vai aprender:</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                                <span class="text-gray-700">Como sair das dívidas de forma estratégica</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                                <span class="text-gray-700">Métodos comprovados para economizar</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                                <span class="text-gray-700">Investimentos iniciais para quem está começando</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                                <span class="text-gray-700">Como planejar seu futuro financeiro</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                                <span class="text-gray-700">Mentalidade para prosperar financeiramente</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Offer Countdown -->
+    <section class="py-12 px-4 md:px-8 bg-gradient-to-r from-red-600 to-red-500 text-white">
+        <div class="container mx-auto max-w-6xl text-center">
+            <h2 class="text-3xl font-bold mb-4">ESTA OFERTA PODE TERMINAR EM BREVE.</h2>
+            <p class="text-xl mb-6">Esta promoção termina em:</p>
+            
+            <div class="flex justify-center space-x-2 mb-8">
+                <div class="countdown-box">
+                    <div class="text-4xl font-bold" id="countdown-days">00</div>
+                    <div class="text-sm">Dias</div>
+                </div>
+                <div class="countdown-box">
+                    <div class="text-4xl font-bold" id="countdown-hours">00</div>
+                    <div class="text-sm">Horas</div>
+                </div>
+                <div class="countdown-box">
+                    <div class="text-4xl font-bold" id="countdown-minutes">00</div>
+                    <div class="text-sm">Minutos</div>
+                </div>
+                <div class="countdown-box">
+                    <div class="text-4xl font-bold" id="countdown-seconds">00</div>
+                    <div class="text-sm">Segundos</div>
+                </div>
+            </div>
+            
+            <div class="max-w-2xl mx-auto bg-black bg-opacity-30 rounded-lg p-4 mb-8">
+                <div class="flex items-center justify-center">
+                    <i class="fas fa-exclamation-triangle text-yellow-300 text-2xl mr-3"></i>
+                    <p class="text-lg">Apenas <span class="font-bold">17 cópias</span> disponíveis com este desconto!</p>
+                </div>
+            </div>
+            
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#comprar" class="gradient-btn text-white font-bold py-4 px-8 rounded-full text-lg inline-block shadow-lg pulse">
+                    GARANTA SEU DESCONTO AGORA <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+                <a href="#comprar" class="gradient-btn text-white font-bold py-4 px-8 rounded-full text-lg inline-block shadow-lg">
+                    <i class="fas fa-gift mr-2"></i> COMPRE JÁ!
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Author Section -->
+    <section class="py-16 px-4 md:px-8 bg-white">
+        <div class="container mx-auto max-w-6xl">
+            <h2 class="text-3xl font-bold mb-12 text-center text-gray-800">Conheça o Autor</h2>
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden p-8">
+                <h3 class="text-2xl font-bold mb-4 text-gray-800">Luis Borges</h3>
+                <div class="flex flex-wrap gap-2 mb-6">
+                    <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-3 py-1 rounded-full">Analista de Sistemas</span>
+                    <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-3 py-1 rounded-full">Design Gráfico</span>
+                    <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-3 py-1 rounded-full">Técnico em Edificações</span>
+                    <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-3 py-1 rounded-full">Técnico em Eletrotécnica</span>
+                </div>
+                <p class="text-gray-700 mb-4">Sou um apaixonado por projetos e por finanças, com vasta experiência em compartilhar conhecimento sobre educação financeira, especialmente com aqueles que estão começando nessa jornada.</p>
+                <p class="text-gray-700">Minha missão é descomplicar o mundo das finanças, tornando-o acessível para todas as pessoas, independentemente de sua formação ou experiência prévia.</p>
+                <div class="mt-6 text-center">
+                    <a href="#comprar" class="gradient-btn text-white font-bold py-3 px-8 rounded-full text-lg inline-block shadow-lg">
+                        <i class="fas fa-user-tie mr-2"></i> COMPRAR DO AUTOR
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guarantee Section -->
+    <section class="py-16 px-4 md:px-8 bg-gray-50">
+        <div class="container mx-auto max-w-6xl">
+            <div class="text-center mb-12">
+                <div class="guarantee-badge bg-green-600 text-white font-bold py-2 px-6 rounded-full inline-block mb-4">
+                    <i class="fas fa-shield-alt mr-2"></i> GARANTIA
+                </div>
+                <h2 class="text-3xl font-bold text-gray-800">Garantia Incondicional de 7 Dias</h2>
+                <p class="text-xl text-gray-600 mt-2">Seu dinheiro de volta sem perguntas até 7 dias após a compra</p>
+            </div>
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0">
+                    <img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" alt="Garantia" class="rounded-lg shadow-lg w-full max-w-md mx-auto">
+                </div>
+                <div class="md:w-1/2 text-center md:text-left">
+                    <div class="max-w-md mx-auto">
+                        <div class="flex items-center justify-center md:justify-start mb-6">
+                            <div class="bg-green-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-check-circle text-green-600 text-2xl"></i>
+                            </div>
+                            <p class="text-lg font-semibold text-gray-800">Sem riscos para você</p>
+                        </div>
+                        <div class="flex items-center justify-center md:justify-start mb-6">
+                            <div class="bg-green-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-undo text-green-600 text-2xl"></i>
+                            </div>
+                            <p class="text-lg font-semibold text-gray-800">Reembolso rápido e fácil</p>
+                        </div>
+                        <div class="flex items-center justify-center md:justify-start mb-8">
+                            <div class="bg-green-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-lock text-green-600 text-2xl"></i>
+                            </div>
+                            <p class="text-lg font-semibold text-gray-800">Pagamento 100% seguro</p>
+                        </div>
+                        <p class="text-gray-700 mb-6">Se por qualquer motivo você não ficar satisfeito com o conteúdo, basta nos enviar um e-mail dentro de 7 dias após a compra e devolveremos 100% do seu dinheiro, sem questionamentos.</p>
+                        <div class="text-center md:text-left">
+                            <a href="#comprar" class="gradient-btn text-white font-bold py-3 px-8 rounded-full text-lg inline-block shadow-lg">
+                                <i class="fas fa-hand-holding-usd mr-2"></i> COMPRAR SEM RISCO
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <!-- Adicionando um banner flutuante de desconto no topo da página -->
+    <div class="fixed top-0 left-0 w-full bg-gradient-to-r from-red-600 to-yellow-500 text-white py-2 z-50 shadow-md" id="top-banner">
+        <div class="container mx-auto text-center">
+            <p class="font-bold">🔥 OFERTA ESPECIAL: 70% DE DESCONTO POR TEMPO LIMITADO! 🔥</p>
+            <button class="absolute top-1 right-4 text-white" onclick="document.getElementById('top-banner').style.display='none'">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+    
+    <!-- Ajustando o header para dar espaço ao banner -->
+    <header class="hero-section bg-gradient-to-r from-blue-800 to-blue-600 text-white py-12 px-4 md:px-8 mt-10">
+        <!-- Resto do header permanece igual -->
+    </header>
+
+    <section class="py-16 px-4 md:px-8 bg-white">
+        <div class="container mx-auto max-w-6xl">
+            <div class="text-center mb-12">
+                <span class="bg-red-100 text-red-800 text-xs font-semibold px-3 py-1 rounded-full animate-pulse">OFERTA POR TEMPO LIMITADO</span>
+                <h2 class="text-3xl font-bold text-gray-800 mt-4">Invista no Seu Futuro Financeiro</h2>
+                <p class="text-xl text-gray-600 mt-2">Acesso imediato após a compra</p>
+            </div>
+            <div class="max-w-md mx-auto bg-white rounded-xl shadow-xl overflow-hidden transform hover:scale-105 transition-transform duration-300">
+                <div class="bg-black text-white py-4 px-6 relative">
+                    <div class="absolute -top-1 -right-1 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-bl-lg transform rotate-12">
+                        MELHOR OFERTA
+                    </div>
+                    <h3 class="text-2xl font-bold">COLHENDO DINHEIRO</h3>
+                    <p class="text-yellow-400">Ebook Digital</p>
+                </div>
+                <div class="p-6">
+                    <div class="price-tag bg-yellow-100 border border-yellow-200 rounded-lg p-6 mb-6 relative">
+                        <div class="absolute -top-3 -left-3 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full animate-pulse">
+                            HOJE APENAS
+                        </div>
+                        <div class="flex justify-between items-end">
+                            <div>
+                                <span class="text-gray-500 line-through text-lg">De R$ 59,90</span>
+                                <div class="flex items-baseline mt-1">
+                                    <span class="text-4xl font-bold text-gray-900">R$ 29,90</span>
+                                    <span class="ml-1 text-gray-600">à vista</span>
+                                </div>
+                                <span class="text-green-600 text-sm font-semibold">ou 12x de R$ 2,99</span>
+                            </div>
+                            <div class="text-right">
+                                <span class="block text-green-600 font-semibold text-xl">70% OFF</span>
+                                <span class="text-xs text-gray-500">Preço promocional</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Badges de confiança -->
+                    <div class="flex flex-wrap justify-center gap-2 mb-6">
+                        <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-3 py-1 rounded-full flex items-center">
+                            <i class="fas fa-bolt mr-1"></i> Acesso Imediato
+                        </span>
+                        <span class="bg-green-100 text-green-800 text-xs font-semibold px-3 py-1 rounded-full flex items-center">
+                            <i class="fas fa-shield-alt mr-1"></i> Garantia de 7 Dias
+                        </span>
+                        <span class="bg-purple-100 text-purple-800 text-xs font-semibold px-3 py-1 rounded-full flex items-center">
+                            <i class="fas fa-download mr-1"></i> Download Digital
+                        </span>
+                    </div>
+                    
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                            <span class="text-gray-700">Ebook completo em PDF</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                            <span class="text-gray-700">Acesso imediato após a compra</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                            <span class="text-gray-700">Garantia de 7 dias</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                            <span class="text-gray-700">Suporte por e-mail</span>
+                        </li>
+                    </ul>
+                    
+                    <!-- Botões de CTA melhorados -->
+                    <a href="#" class="gradient-btn text-white font-bold py-4 px-6 rounded-lg text-center text-lg block w-full mb-4 shadow-lg pulse">
+                        COMPRAR AGORA <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                    <a href="#" class="gradient-btn text-white font-bold py-4 px-6 rounded-lg text-center text-lg block w-full mb-4 shadow-lg">
+                        <i class="fab fa-pix mr-2"></i> PAGAR COM PIX
+                    </a>
+                    
+                    <!-- Contador de pessoas visualizando -->
+                    <div class="bg-gray-100 p-3 rounded-lg text-center text-sm text-gray-700 mb-4">
+                        <i class="fas fa-eye mr-1"></i> <span id="viewers-count">37</span> pessoas estão vendo esta página agora
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="flex justify-center mb-2">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Stripe_Logo%2C_revised_2016.svg/2560px-Stripe_Logo%2C_revised_2016.svg.png" alt="Stripe" class="h-8">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/PayPal_Logo_Icon_2014.svg/1200px-PayPal_Logo_Icon_2014.svg.png" alt="PayPal" class="h-8 ml-4">
+                        </div>
+                        <p class="text-xs text-gray-500">Pagamento 100% seguro com acesso imediato</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-16 px-4 md:px-8 bg-gray-100">
+        <div class="container mx-auto max-w-6xl">
+            <h2 class="text-3xl font-bold mb-12 text-center text-gray-800">Perguntas Frequentes</h2>
+            <div class="max-w-3xl mx-auto space-y-4">
+                <div class="faq-item bg-white rounded-lg overflow-hidden border border-gray-200">
+                    <button class="w-full flex justify-between items-center p-4 text-left font-semibold text-gray-800 hover:bg-gray-50 transition">
+                        <span>Para quem é esse produto?</span>
+                        <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                    </button>
+                    <div class="px-4 pb-4 hidden">
+                        <p class="text-gray-700">Este ebook é perfeito para pessoas que gostam de educação financeira ou para aquelas sem conhecimento prévio que desejam quitar suas dívidas e melhorar sua situação financeira. Se você quer prosperar financieramente, este guia foi feito para você.</p>
+                    </div>
+                </div>
+                <div class="faq-item bg-white rounded-lg overflow-hidden border border-gray-200">
+                    <button class="w-full flex justify-between items-center p-4 text-left font-semibold text-gray-800 hover:bg-gray-50 transition">
+                        <span>Como funciona o prazo de garantia?</span>
+                        <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                    </button>
+                    <div class="px-4 pb-4 hidden">
+                        <p class="text-gray-700">A garantia é o período que você tem para pedir o reembolso integral do valor pago pela sua compra, caso o produto não seja satisfatório. Você tem 7 dias após a compra para solicitar seu reembolso sem questionamentos.</p>
+                    </div>
+                </div>
+                <div class="faq-item bg-white rounded-lg overflow-hidden border border-gray-200">
+                    <button class="w-full flex justify-between items-center p-4 text-left font-semibold text-gray-800 hover:bg-gray-50 transition">
+                        <span>O ebook oferece certificado de conclusão?</span>
+                        <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                    </button>
+                    <div class="px-4 pb-4 hidden">
+                        <p class="text-gray-700">Não. Este eBook tem como foco a entrega de conteúdo de valor e aplicação prática, mas não disponibiliza certificado de conclusão, por não se tratar de um curso ou formação com carga horária definida.</p>
+                    </div>
+                </div>
+                <div class="faq-item bg-white rounded-lg overflow-hidden border border-gray-200">
+                    <button class="w-full flex justify-between items-center p-4 text-left font-semibold text-gray-800 hover:bg-gray-50 transition">
+                        <span>Como acessar o produto após a compra?</span>
+                        <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                    </button>
+                    <div class="px-4 pb-4 hidden">
+                        <p class="text-gray-700">
+
+Você receberá o acesso por email. O conteúdo será acessado ou baixado através de um computador, celular, tablet ou outro dispositivo digital. Você também pode acessar o produto comprado nesta página:<br> 
+
+
+01 - Faça login na Hotmart clicando em 'Entrar'<br> 
+
+02 - Acesse o menu lateral, clique em 'Minha conta'<br> 
+
+03 - Clique em 'Minhas compras' e lá estarão todos os produtos que você já comprou!
+.</p>
+                    </div>
+                </div>
+                <div class="faq-item bg-white rounded-lg overflow-hidden border border-gray-200">
+                    <button class="w-full flex justify-between items-center p-4 text-left font-semibold text-gray-800 hover:bg-gray-50 transition">
+                        <span>Quais são as formas de pagamento?</span>
+                        <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                    </button>
+                    <div class="px-4 pb-4 hidden">
+                        <p class="text-gray-700">Aceitamos todos os cartões de crédito, débito, boleto bancário e Pix. O pagamento é processado de forma 100% segura através da plataforma Hotmart.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-12">
+                <a href="#comprar" class="gradient-btn text-white font-bold py-4 px-12 rounded-full text-lg inline-block shadow-lg">
+                    <i class="fas fa-question-circle mr-2"></i> AINDA COM DÚVIDAS? FALE CONOSCO
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8 px-4 md:px-8">
+        <div class="container mx-auto max-w-6xl">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <p class="text-gray-400">© 2025 Colhendo Dinheiro. Todos os direitos reservados.</p>
+                </div>
+                <div>
+                    <a href="#comprar" class="gradient-btn text-white font-bold py-2 px-6 rounded-full text-sm inline-block shadow-lg">
+                        <i class="fas fa-headset mr-2"></i> SUPORTE
+                    </a>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-800 text-center text-sm text-gray-500">
+                <p>Este produto é comercializado com apoio da Hotmart. A plataforma não faz controle editorial prévio dos produtos comercializados, nem avalia a tecnicidade e experiência daqueles que os produzem. A existência de um produto e sua aquisição, por meio da plataforma, não podem ser consideradas como garantia de qualidade de conteúdo e resultado, em qualquer hipótese. Ao adquiri-lo, o comprador declara estar ciente desses informações. Os termos e políticas da Hotmart podem be acessados aqui, antes mesmo da conclusão da compra.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Countdown Timer with urgency effects
+        function updateCountdown() {
+            const now = new Date();
+            // Set end date to tomorrow at midnight for maximum urgency
+            const endDate = new Date();
+            endDate.setDate(now.getDate() + 1);
+            endDate.setHours(0, 0, 0, 0);
+            
+            const diff = endDate - now;
+            
+            // Calculate time units
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            
+            // Update display
+            document.getElementById('countdown-days').textContent = days.toString().padStart(2, '0');
+            document.getElementById('countdown-hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('countdown-minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('countdown-seconds').textContent = seconds.toString().padStart(2, '0');
+            
+            // Add urgency effects when time is running out
+            if (hours < 6) {
+                document.querySelectorAll('.countdown-box').forEach(box => {
+                    box.style.background = 'rgba(239, 68, 68, 0.3)';
+                });
+                
+                if (hours < 1) {
+                    document.querySelector('#countdown-minutes').parentElement.parentElement.style.animation = 'pulse 1s infinite';
+                    document.querySelector('#countdown-seconds').parentElement.parentElement.style.animation = 'pulse 0.5s infinite';
+                }
+            }
+            
+            // Randomly decrease remaining copies to create scarcity
+            if (Math.random() > 0.7 && seconds % 30 === 0) {
+                const copiesElement = document.querySelector('.max-w-2xl p span');
+                const currentCopies = parseInt(copiesElement.textContent);
+                if (currentCopies > 1) {
+                    copiesElement.textContent = (currentCopies - 1).toString();
+                }
+            }
+        }
+        
+        // Update countdown every second
+        setInterval(updateCountdown, 1000);
+        updateCountdown(); // Initial call
+        
+        // FAQ Accordion
+        document.querySelectorAll('.faq-item button').forEach(button => {
+            button.addEventListener('click', () => {
+                const faqItem = button.parentElement;
+                const content = button.nextElementSibling;
+                const icon = button.querySelector('i');
+                
+                content.classList.toggle('hidden');
+                icon.classList.toggle('rotate-180');
+                
+                // Close other open items
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    if (item !== faqItem) {
+                        item.querySelector('div').classList.add('hidden');
+                        item.querySelector('i').classList.remove('rotate-180');
+                    }
+                });
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+    <script src="js/script.js"></script>
+
+    <!-- Adicionar script para contador de visualizações -->
+    <script>
+        // Código existente...
+        
+        // Contador de visualizações aleatório
+        function updateViewersCount() {
+            const viewersElement = document.getElementById('viewers-count');
+            let currentViewers = parseInt(viewersElement.textContent);
+            
+            // Aleatoriamente aumenta ou diminui o número de visualizadores
+            const change = Math.floor(Math.random() * 3) - 1; // -1, 0, ou 1
+            currentViewers += change;
+            
+            // Mantém entre 25 e 45 para parecer realista
+            if (currentViewers < 25) currentViewers = 25;
+            if (currentViewers > 45) currentViewers = 45;
+            
+            viewersElement.textContent = currentViewers;
+        }
+        
+        // Atualiza a cada 5 segundos
+        setInterval(updateViewersCount, 5000);
+    </script>
